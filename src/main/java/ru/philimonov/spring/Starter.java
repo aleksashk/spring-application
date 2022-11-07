@@ -6,8 +6,8 @@ public class Starter {
     public static void main(String[] args) {
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml")) {
 
-            MusicPlayer player = context.getBean("musicPlayer", MusicPlayer.class);
-            player.playMusic();
+            Computer computer = context.getBean("computer", Computer.class);
+            System.out.println(computer);
         }
     }
 }
