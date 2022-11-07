@@ -1,9 +1,13 @@
 package ru.philimonov.spring;
 
-public class MusicalPlayer {
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class MusicPlayer {
+
+    @Autowired
     private  Music music;
 
-    public MusicalPlayer(Music music) {
+    public MusicPlayer(Music music) {
         this.music = music;
     }
 
