@@ -1,22 +1,26 @@
 package ru.philimonov.spring;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
 public class ClassicalMusic implements Music {
-    private List<String> playList = new ArrayList<>();
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("Doing my initialization");
+    }
 
-    {
-        playList.add("Hungarian Rhapsody");
-        playList.add("Symphony no. 5 in C Minor, op. 67");
-        playList.add("Night on Bald Mountain");
+    // Для Prototype бинов не вызывается destroy-метод!
+    @PreDestroy
+    public void doMyDestroy() {
+        System.out.println("Doing my destruction");
     }
 
     @Override
-    public List<String> getSongs() {
-        return playList;
+    public String getSong() {
+        return "Hungarian Rhapsody";
     }
 }
