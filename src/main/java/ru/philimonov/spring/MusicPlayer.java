@@ -1,14 +1,9 @@
 package ru.philimonov.spring;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MusicPlayer {
-
-    private List<Music> playList = new ArrayList<>();
+    private Music music;
 
     private String name;
-
     private int volume;
 
     public String getName() {
@@ -27,13 +22,19 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public void setPlayList(List<Music> playList) {
-        this.playList = playList;
+    // IoC
+    public MusicPlayer(Music music) {
+        this.music = music;
+    }
+
+    public MusicPlayer() {
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
     }
 
     public void playMusic() {
-        for (Music music : playList) {
-            System.out.println("Playing: " + music.getSong());
-        }
+        System.out.println("Playing: " + music.getSong());
     }
 }
