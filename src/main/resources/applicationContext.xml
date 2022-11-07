@@ -14,6 +14,8 @@
     <bean id="musicPlayer"
           class="ru.philimonov.spring.MusicPlayer">
         <property name="music" ref="music"/>
+        <property name="name" value="AIMP"/>
+        <property name="volume" value="25"/>
     </bean>
 
 </beans>

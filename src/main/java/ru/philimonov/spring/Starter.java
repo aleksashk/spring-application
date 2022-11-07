@@ -8,6 +8,8 @@ public class Starter {
 
             MusicPlayer player = context.getBean("musicPlayer", MusicPlayer.class);
             player.playMusic();
+            System.out.println("Name: " + player.getName());
+            System.out.println("Volume: " + player.getVolume());
         }
     }
 }
