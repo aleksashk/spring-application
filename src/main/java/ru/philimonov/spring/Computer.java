@@ -14,8 +14,8 @@ public class Computer {
         this.player = player;
     }
 
-    @Override
-    public String toString() {
-        return "Computer " + id + " " + player.playMusic();
-    }
+//    @Override
+//    public String toString() {
+//        return "Computer " + id + " " + player.playMusic();
+//    }
 }
