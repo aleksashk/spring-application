@@ -1,18 +1,24 @@
 package ru.philimonov.spring;
 
 public class ClassicalMusic implements Music {
+
+    private ClassicalMusic() {
+    }
+
+    public static ClassicalMusic getClassicalMusic(){
+        return new ClassicalMusic();
+    }
+
     @Override
     public String getSong() {
         return "Hungarian Rhapsody";
     }
 
-    protected Long doMyInit(){
+    public void doMyInit(){
         System.out.println("Doing my initialization");
-        return Long.MAX_VALUE;
     }
 
-    private Object doMyDestroy(){
+    public void doMyDestroy(){
         System.out.println("Doing my destruction");
-        return new Object();
     }
 }
