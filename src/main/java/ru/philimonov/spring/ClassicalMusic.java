@@ -6,11 +6,13 @@ public class ClassicalMusic implements Music {
         return "Hungarian Rhapsody";
     }
 
-    public void doMyInit(){
+    protected Long doMyInit(){
         System.out.println("Doing my initialization");
+        return Long.MAX_VALUE;
     }
 
-    public void doMyDestroy(){
+    private Object doMyDestroy(){
         System.out.println("Doing my destruction");
+        return new Object();
     }
 }
