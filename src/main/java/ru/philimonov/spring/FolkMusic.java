@@ -1,8 +1,8 @@
 package ru.philimonov.spring;
 
-public class RockMusic implements Music {
+public class FolkMusic implements Music{
     @Override
     public String getSong() {
-        return "Wind cries Mary";
+        return "Dirty Old Town";
     }
 }

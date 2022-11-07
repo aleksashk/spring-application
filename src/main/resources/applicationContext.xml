@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans  xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="music"
+    <bean id="classicMusicBean"
+          class="ru.philimonov.spring.ClassicalMusic">
+    </bean>
+    <bean id="rockMusicBean"
           class="ru.philimonov.spring.RockMusic">
     </bean>
-
+    <bean id="folkMusicBean"
+          class="ru.philimonov.spring.FolkMusic">
+    </bean>
     <bean id="musicPlayer"
           class="ru.philimonov.spring.MusicPlayer">
-        <property name="music" ref="music"/>
-        <property name="name" value="AIMP"/>
-        <property name="volume" value="25"/>
+        <property name="playList">
+            <list>
+                <ref bean="classicMusicBean"/>
+                <ref bean="rockMusicBean"/>
+                <ref bean="folkMusicBean"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>
